@@ -11,6 +11,12 @@ public class BallController : MonoBehaviour
     //ゲームオーバを表示するテキスト
     private GameObject gameoverText;
 
+    //スコアを表示するテキスト
+    private GameObject ScoreText;
+
+    //スコア計算用変数
+    public int score = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -19,6 +25,7 @@ public class BallController : MonoBehaviour
 
         //シーン中のScoreTextオブジェクトを取得
         this.ScoreText = GameObject.Find("ScoreText");
+        
 
     }
 
@@ -33,18 +40,10 @@ public class BallController : MonoBehaviour
         }
     }
 
-    //スコアを表示するテキスト
-    private GameObject ScoreText;
-
-    //スコア計算用変数
-    public int score = 0;
-
-
-
     //衝突時に呼ばれる関数
     void OnCollisionEnter(Collision other)
     {
-        
+
         //タグによって得点を変える
         if (other.gameObject.tag == "SmallStarTag" || other.gameObject.tag == "SmallCloudTag")
         {
